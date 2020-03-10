@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MoviesViewController: UIViewController {
 
     @IBOutlet weak var tempMovieLabel: UILabel!
     
