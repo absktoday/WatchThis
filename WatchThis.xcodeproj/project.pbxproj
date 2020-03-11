@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		381E459B2418C19800429ED8 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381E459A2418C19800429ED8 /* TempViewController.swift */; };
+		381E459D2418DAA100429ED8 /* MovieGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381E459C2418DAA100429ED8 /* MovieGridCell.swift */; };
 		3884B174240721BA008BDD32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3884B173240721BA008BDD32 /* AppDelegate.swift */; };
 		3884B176240721BA008BDD32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3884B175240721BA008BDD32 /* SceneDelegate.swift */; };
 		3884B178240721BA008BDD32 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3884B177240721BA008BDD32 /* MoviesViewController.swift */; };
@@ -14,6 +16,7 @@
 		3884B17D240721BC008BDD32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3884B17C240721BC008BDD32 /* Assets.xcassets */; };
 		3884B180240721BC008BDD32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3884B17E240721BC008BDD32 /* LaunchScreen.storyboard */; };
 		38A835B92416E3180074215E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A835B82416E3180074215E /* ProfileViewController.swift */; };
+		38C4EE3B2418E4620020E073 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C4EE3A2418E4620020E073 /* MovieTableViewCell.swift */; };
 		38E5B5D42417116A00B93221 /* AuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E5B5D32417116A00B93221 /* AuthenticateViewController.swift */; };
 		38E5B5D6241717DA00B93221 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E5B5D5241717DA00B93221 /* APICaller.swift */; };
 		A433FE5730DB61A374164EE5 /* Pods_WatchThis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1387299142AFEB5AFBD792C0 /* Pods_WatchThis.framework */; };
@@ -23,6 +26,8 @@
 		1387299142AFEB5AFBD792C0 /* Pods_WatchThis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchThis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3030BFD225E960F9A678AE39 /* Pods-WatchThis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchThis.release.xcconfig"; path = "Target Support Files/Pods-WatchThis/Pods-WatchThis.release.xcconfig"; sourceTree = "<group>"; };
 		342456B6B237F9591AE1C847 /* Pods-WatchThis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchThis.debug.xcconfig"; path = "Target Support Files/Pods-WatchThis/Pods-WatchThis.debug.xcconfig"; sourceTree = "<group>"; };
+		381E459A2418C19800429ED8 /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
+		381E459C2418DAA100429ED8 /* MovieGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridCell.swift; sourceTree = "<group>"; };
 		3884B170240721BA008BDD32 /* WatchThis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchThis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3884B173240721BA008BDD32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3884B175240721BA008BDD32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +37,7 @@
 		3884B17F240721BC008BDD32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3884B181240721BC008BDD32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38A835B82416E3180074215E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		38C4EE3A2418E4620020E073 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		38E5B5D32417116A00B93221 /* AuthenticateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateViewController.swift; sourceTree = "<group>"; };
 		38E5B5D5241717DA00B93221 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +91,8 @@
 				3884B17C240721BC008BDD32 /* Assets.xcassets */,
 				3884B17E240721BC008BDD32 /* LaunchScreen.storyboard */,
 				3884B181240721BC008BDD32 /* Info.plist */,
+				381E459C2418DAA100429ED8 /* MovieGridCell.swift */,
+				38C4EE3A2418E4620020E073 /* MovieTableViewCell.swift */,
 			);
 			path = WatchThis;
 			sourceTree = "<group>";
@@ -96,6 +104,7 @@
 				38A835B82416E3180074215E /* ProfileViewController.swift */,
 				38E5B5D32417116A00B93221 /* AuthenticateViewController.swift */,
 				38E5B5D5241717DA00B93221 /* APICaller.swift */,
+				381E459A2418C19800429ED8 /* TempViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -225,7 +234,10 @@
 			files = (
 				3884B178240721BA008BDD32 /* MoviesViewController.swift in Sources */,
 				38E5B5D6241717DA00B93221 /* APICaller.swift in Sources */,
+				38C4EE3B2418E4620020E073 /* MovieTableViewCell.swift in Sources */,
+				381E459B2418C19800429ED8 /* TempViewController.swift in Sources */,
 				3884B174240721BA008BDD32 /* AppDelegate.swift in Sources */,
+				381E459D2418DAA100429ED8 /* MovieGridCell.swift in Sources */,
 				38A835B92416E3180074215E /* ProfileViewController.swift in Sources */,
 				3884B176240721BA008BDD32 /* SceneDelegate.swift in Sources */,
 				38E5B5D42417116A00B93221 /* AuthenticateViewController.swift in Sources */,

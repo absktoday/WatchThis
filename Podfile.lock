@@ -1,24 +1,20 @@
 PODS:
-  - Auth0 (1.22.1):
-    - JWTDecode
-    - SimpleKeychain
-  - JWTDecode (2.4.1)
-  - SimpleKeychain (0.11.0)
+  - Alamofire (4.9.1)
+  - AlamofireImage (3.6.0):
+    - Alamofire (~> 4.9)
 
 DEPENDENCIES:
-  - Auth0
+  - AlamofireImage
 
 SPEC REPOS:
   trunk:
-    - Auth0
-    - JWTDecode
-    - SimpleKeychain
+    - Alamofire
+    - AlamofireImage
 
 SPEC CHECKSUMS:
-  Auth0: c3dd0b6f9031e9cc38be2a6973f766f33ccbad83
-  JWTDecode: 4bd4da0cdf0f8154fd467fa48499f34ec057fb88
-  SimpleKeychain: 2c135c65e64cd4e7df7ec418407be83ee07ba1c2
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
 
-PODFILE CHECKSUM: 4147fb7172c9d7e587573fa133cdd9547d0faf5f
+PODFILE CHECKSUM: ceb64a35f1df440f1dd64c14a4f2574662931958
 
 COCOAPODS: 1.8.4

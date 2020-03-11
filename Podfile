@@ -7,6 +7,6 @@ target 'WatchThis' do
 
   # Pods for WatchThis
 
-  pod 'Auth0'
+  pod 'AlamofireImage'
 
 end

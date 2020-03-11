@@ -1,30 +1,20 @@
 //
-//  AuthenticateViewController.swift
+//  TempViewController.swift
 //  WatchThis
 //
-//  Created by Abhishek Saral on 3/9/20.
+//  Created by Abhishek Saral on 3/10/20.
 //  Copyright © 2020 Tech Knowns. All rights reserved.
 //
 
 import UIKit
-import SafariServices
 
-class AuthenticateViewController: UIViewController {
-
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var userNameLabel: UILabel!
-    
-    var isLoadingViewController = false
+class TempViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        APICaller.client.getUserData {
-            self.nameLabel.text = APICaller.client.myName
-            self.userNameLabel.text = APICaller.client.myUserName
-        }
-        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
 
     /*
     // MARK: - Navigation
