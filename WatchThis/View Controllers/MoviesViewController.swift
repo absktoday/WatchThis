@@ -66,10 +66,13 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UICollectio
         let movie = comingSoonMovies[indexPath.item]
         
         let baseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie["poster_path"] as! String
-        let posterUrl = URL (string: baseUrl + posterPath)!
         
-        cell.posterView.af_setImage(withURL: posterUrl)
+        if let posterPath = movie["poster_path"] as? String {
+            let posterUrl = URL (string: baseUrl + posterPath)!
+            cell.posterView.af_setImage(withURL: posterUrl, placeholderImage: UIImage(named: "default-poster"))
+        } else {
+            cell.posterView.image = UIImage(named: "default-poster")
+        }
         
         return cell
     }
@@ -91,10 +94,13 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UICollectio
         cell.synopsisLabel.text = synopsis
 
         let baseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie["poster_path"] as! String
-        let posterUrl = URL (string: baseUrl + posterPath)!
-
-        cell.posterView.af_setImage(withURL: posterUrl)
+        
+        if let posterPath = movie["poster_path"] as? String {
+            let posterUrl = URL (string: baseUrl + posterPath)!
+            cell.posterView.af_setImage(withURL: posterUrl, placeholderImage: UIImage(named: "default-poster"))
+        } else {
+            cell.posterView.image = UIImage(named: "default-poster")
+        }
         
         return cell
     }
