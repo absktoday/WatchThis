@@ -11,14 +11,8 @@ import AlamofireImage
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate {
     
-    
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var tempMovieLabel: UILabel!
-    
-    
     
     var comingSoonMovies = [[String:Any]]()
     var nowPlayingMovies = [[String:Any]]()
@@ -40,18 +34,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UICollectio
         
         getComingSoonMovies()
         getNowPlayingMovies()
-        
-    }
-    
-    // Temp button to see if we are getting movies from the database.
-    @IBAction func showMoviesButton(_ sender: Any) {
-        
-        for movie in comingSoonMovies {
-            tempMovieString.append(movie["title"] as! String)
-            tempMovieString.append("\n")
-        }
-        tempMovieLabel.text = tempMovieString
-        print(tempMovieString)
         
     }
     
@@ -117,26 +99,16 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UICollectio
            } else if let data = data {
               let movieData = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
             
-            
-
-
             self.nowPlayingMovies = movieData["results"] as! [[String:Any]]
 
             self.tableView.reloadData()
-            
-            //print(self.movies)
 
            }
         }
         task.resume()
     }
     
-    fileprivate func getComingSoonMovies() {
-        //tempMovieLabel.text = "Hello World!"
-        
-        // Retrieving movie information from The Movie Database API
-        
-        
+    func getComingSoonMovies() {
         
         let url = URL(string: "https://api.themoviedb.org/3/movie/upcoming?api_key=b6dcea27a60a83ccbe00da3c72753438&language=en-US&page=1&region=US")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
