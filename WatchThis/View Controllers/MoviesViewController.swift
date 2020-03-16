@@ -133,5 +133,45 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UICollectio
         task.resume()
     }
     
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
+        if let mySender = sender as? UITableViewCell {
+            print("Table View Cell Clicked")
+
+            let cell = mySender
+            let indexPath = tableView.indexPath(for: cell)!
+            let movie = nowPlayingMovies[indexPath.row]
+
+            // Pass the selected movie to the details view controller
+
+            let detailsViewController = segue.destination as! MovieDetailsViewController
+
+            detailsViewController.movie = movie
+
+            tableView.deselectRow(at: indexPath, animated: true)
+
+        } else if let mySender = sender as? UICollectionViewCell {
+            print("Collection View Cell Clicked")
+
+            let cell = mySender
+            let indexPath = collectionView.indexPath(for: cell)!
+            let movie = comingSoonMovies[indexPath.item]
+
+            // Pass the selected movie to the details view controller
+
+            let detailsViewController = segue.destination as! MovieDetailsViewController
+
+            detailsViewController.movie = movie
+        }
+
+        
+    }
+    
 }
 

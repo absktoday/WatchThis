@@ -82,6 +82,7 @@
                                                         <size key="customSize" width="128" height="175"/>
                                                         <connections>
                                                             <outlet property="posterView" destination="ihX-5e-dlY" id="Od3-dU-QEZ"/>
+                                                            <segue destination="Inp-Kq-PMS" kind="presentation" id="9ko-jN-vAi"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -189,6 +190,7 @@
                                                             <outlet property="shadowLayer" destination="qcT-kS-bH4" id="6hA-3c-D4x"/>
                                                             <outlet property="synopsisLabel" destination="ypI-UA-Ses" id="J3o-Jf-UTT"/>
                                                             <outlet property="titleLabel" destination="0Yr-II-7ka" id="Mo5-4x-Rsq"/>
+                                                            <segue destination="Inp-Kq-PMS" kind="presentation" id="Skm-mI-iRH"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -225,6 +227,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1597.1014492753625" y="1530.8035714285713"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="gzQ-fm-uEC">
+            <objects>
+                <viewController id="Inp-Kq-PMS" customClass="MovieDetailsViewController" customModule="WatchThis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rlM-5K-XIX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIc-7H-4jI">
+                                <rect key="frame" x="20" y="103" width="374" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqV-eA-XDk">
+                                <rect key="frame" x="20" y="241" width="374" height="162"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="tbb-VJ-LTw"/>
+                    </view>
+                    <connections>
+                        <outlet property="synopsisLabel" destination="CqV-eA-XDk" id="VZy-FU-MkQ"/>
+                        <outlet property="titleLabel" destination="wIc-7H-4jI" id="jhV-ma-Fbx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xp8-YM-KI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1575.3623188405797" y="2276.7857142857142"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Uv5-m5-1xT">
@@ -539,4 +576,7 @@
             <color red="0.92941176470588238" green="0.92941176470588238" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9ko-jN-vAi"/>
+    </inferredMetricsTieBreakers>
 </document>
