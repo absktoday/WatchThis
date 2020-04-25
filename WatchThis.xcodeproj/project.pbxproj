@@ -19,6 +19,7 @@
 		38C4EE3B2418E4620020E073 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C4EE3A2418E4620020E073 /* MovieTableViewCell.swift */; };
 		38E5B5D42417116A00B93221 /* AuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E5B5D32417116A00B93221 /* AuthenticateViewController.swift */; };
 		38E5B5D6241717DA00B93221 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E5B5D5241717DA00B93221 /* APICaller.swift */; };
+		91D2A74E245480C600521145 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D2A74D245480C600521145 /* SearchViewController.swift */; };
 		A433FE5730DB61A374164EE5 /* Pods_WatchThis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1387299142AFEB5AFBD792C0 /* Pods_WatchThis.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		38C4EE3A2418E4620020E073 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		38E5B5D32417116A00B93221 /* AuthenticateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateViewController.swift; sourceTree = "<group>"; };
 		38E5B5D5241717DA00B93221 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		91D2A74D245480C600521145 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				38E5B5D32417116A00B93221 /* AuthenticateViewController.swift */,
 				38E5B5D5241717DA00B93221 /* APICaller.swift */,
 				3861450B241F498600378CD8 /* MovieDetailsViewController.swift */,
+				91D2A74D245480C600521145 /* SearchViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91D2A74E245480C600521145 /* SearchViewController.swift in Sources */,
 				3884B178240721BA008BDD32 /* MoviesViewController.swift in Sources */,
 				38E5B5D6241717DA00B93221 /* APICaller.swift in Sources */,
 				3861450C241F498600378CD8 /* MovieDetailsViewController.swift in Sources */,
