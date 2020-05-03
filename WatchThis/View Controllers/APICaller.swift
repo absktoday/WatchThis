@@ -19,6 +19,7 @@ class APICaller {
     var myName = ""
     var myUserName = ""
     
+    var accountID = 0
     
     func getToken() {
         
@@ -129,8 +130,7 @@ class APICaller {
                 
                 self.myName = userData["name"] as! String
                 self.myUserName = userData["username"] as! String
-                
-                print(userData)
+                self.accountID = userData["id"] as! Int
                 completion()
             }
         }
