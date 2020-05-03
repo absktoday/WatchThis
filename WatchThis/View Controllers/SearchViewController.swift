@@ -17,6 +17,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var searchResults = [[String:Any]]()
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -80,6 +82,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         task.resume()
     }
+    
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        searchBar.setShowsCancelButton(true, animated: true)
+//    }
+//
+//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+//        searchBar.setShowsCancelButton(false, animated: true)
+//    }
 
     /*
     // MARK: - Navigation
