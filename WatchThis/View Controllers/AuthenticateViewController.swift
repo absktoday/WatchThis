@@ -163,12 +163,8 @@ class AuthenticateViewController: UIViewController {
         
         print(sessionID)
         
-        //let url = URL(string: "https://api.themoviedb.org/3/account/{account_id}/rated/movies?api_key=b6dcea27a60a83ccbe00da3c72753438&language=en-US&session_id=\(self.sessionID)&sort_by=created_at.asc&page=1")!
+        let url = URL(string: "https://api.themoviedb.org/3/account/\(APICaller.client.accountID)/rated/movies?api_key=b6dcea27a60a83ccbe00da3c72753438&language=en-US&session_id=\(APICaller.client.sessionID)&sort_by=created_at.asc&page=1")!
         
-        //print(url)
-        
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=b6dcea27a60a83ccbe00da3c72753438&language=en-US&page=1&region=US")!
-        //print(url)
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -253,7 +249,19 @@ extension AuthenticateViewController : UICollectionViewDelegateFlowLayout , UICo
         
         let cell = ratedCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! customCellRate
         
+        let movie = ratedMovies[indexPath.item]
+        
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
+        
+        if let posterPath = movie["poster_path"] as? String {
+            let posterUrl = URL (string: baseUrl + posterPath)!
+            cell.bg.af_setImage(withURL: posterUrl, placeholderImage: UIImage(named: "default-poster"))
+        } else {
+            cell.bg.image = UIImage(named: "default-poster")
+        }
+        
         cell.backgroundColor = .white
+        
         
         return cell
     }
