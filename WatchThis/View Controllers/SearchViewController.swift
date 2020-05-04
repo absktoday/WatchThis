@@ -29,9 +29,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
+        //Setting color on text in searchbar. Darkmode/lightmode
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            if traitCollection.userInterfaceStyle == .light{
+                textfield.textColor = UIColor.black
+            }
+            else{
+                textfield.textColor = UIColor.white
+            }
+        }
+        
         // Do any additional setup after loading the view.
-        
-        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -61,10 +69,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text else {return}
-        let url = URL(string: "https://api.themoviedb.org/3/search/movie?api_key=b6dcea27a60a83ccbe00da3c72753438&query=\(searchText)")!
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if(searchText.isEmpty){return}
+        let formatedSearchText = searchText.replacingOccurrences(of: " ", with: "+")
+        let url = URL(string: "https://api.themoviedb.org/3/search/movie?api_key=b6dcea27a60a83ccbe00da3c72753438&query=\(formatedSearchText)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -121,11 +129,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             tableView.deselectRow(at: indexPath, animated: true)
 
         }
-        else{
-            print("else")
-        }
     }
-
 }
 
 
