@@ -233,14 +233,14 @@
             <objects>
                 <viewController id="Inp-Kq-PMS" customClass="MovieDetailsViewController" customModule="WatchThis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rlM-5K-XIX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3U-Kp-Z8m">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEn-Fe-W1h">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="758"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PIN-AX-3OC">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="421"/>
@@ -296,13 +296,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lh-ZW-Jgl">
-                                                <rect key="frame" x="20" y="674" width="89" height="24"/>
+                                                <rect key="frame" x="20" y="679" width="89" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqV-eA-XDk">
-                                                <rect key="frame" x="20" y="718" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="713" width="374" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="rkE-SC-7sP"/>
                                                 </constraints>
@@ -310,27 +310,38 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arM-fD-zY3" customClass="CosmosView" customModule="Cosmos">
+                                                <rect key="frame" x="20" y="624" width="170" height="30"/>
+                                                <color key="backgroundColor" name="background-color"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                        <real key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" name="background-color"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="PIN-AX-3OC" secondAttribute="trailing" id="1iL-WM-V1F"/>
                                             <constraint firstItem="GpN-gN-0cv" firstAttribute="top" secondItem="PIN-AX-3OC" secondAttribute="bottom" constant="20" id="3qn-iS-1w7"/>
                                             <constraint firstItem="ObN-ec-Vch" firstAttribute="leading" secondItem="jEn-Fe-W1h" secondAttribute="leading" constant="20" id="4oS-u8-PHD"/>
                                             <constraint firstItem="ObN-ec-Vch" firstAttribute="top" secondItem="ltH-Mh-PX4" secondAttribute="bottom" constant="25" id="59T-bi-Ln7"/>
-                                            <constraint firstItem="CqV-eA-XDk" firstAttribute="top" secondItem="9Lh-ZW-Jgl" secondAttribute="bottom" constant="20" id="716-YJ-X05"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6iM-4O-4i7" secondAttribute="trailing" constant="20" symbolic="YES" id="7A3-vo-58n"/>
                                             <constraint firstItem="CqV-eA-XDk" firstAttribute="leading" secondItem="jEn-Fe-W1h" secondAttribute="leading" constant="20" id="A4I-4b-zBP"/>
-                                            <constraint firstAttribute="bottom" secondItem="CqV-eA-XDk" secondAttribute="bottom" constant="10" id="D0h-Be-5wu"/>
+                                            <constraint firstItem="CqV-eA-XDk" firstAttribute="top" secondItem="9Lh-ZW-Jgl" secondAttribute="bottom" constant="10" id="Doq-1k-qeo"/>
                                             <constraint firstItem="zOF-ZA-8IS" firstAttribute="top" secondItem="ObN-ec-Vch" secondAttribute="bottom" constant="25" id="GM2-i0-ZIW"/>
                                             <constraint firstItem="9Lh-ZW-Jgl" firstAttribute="leading" secondItem="zOF-ZA-8IS" secondAttribute="leading" id="MFc-PH-4mc"/>
-                                            <constraint firstItem="9Lh-ZW-Jgl" firstAttribute="top" secondItem="zOF-ZA-8IS" secondAttribute="bottom" constant="60" id="MZx-6T-GFh"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Lh-ZW-Jgl" secondAttribute="trailing" constant="20" symbolic="YES" id="N2U-0n-M3G"/>
                                             <constraint firstItem="PIN-AX-3OC" firstAttribute="leading" secondItem="jEn-Fe-W1h" secondAttribute="leading" id="NpG-Jv-pmz"/>
                                             <constraint firstAttribute="trailing" secondItem="CqV-eA-XDk" secondAttribute="trailing" constant="20" id="OpI-6E-m4a"/>
                                             <constraint firstItem="HBh-aB-fnn" firstAttribute="leading" secondItem="jEn-Fe-W1h" secondAttribute="leading" constant="20" id="Q1O-OC-UQ0"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Lh-ZW-Jgl" secondAttribute="trailing" constant="20" symbolic="YES" id="S3R-jI-S8v"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zOF-ZA-8IS" secondAttribute="trailing" constant="20" symbolic="YES" id="UJe-of-u5P"/>
                                             <constraint firstItem="6iM-4O-4i7" firstAttribute="top" secondItem="GpN-gN-0cv" secondAttribute="bottom" constant="10" id="W1H-Fz-RAo"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wIc-7H-4jI" secondAttribute="trailing" constant="20" symbolic="YES" id="X1u-WN-ypc"/>
+                                            <constraint firstItem="arM-fD-zY3" firstAttribute="top" secondItem="zOF-ZA-8IS" secondAttribute="bottom" constant="10" id="YoA-EJ-Y5b"/>
                                             <constraint firstItem="ltH-Mh-PX4" firstAttribute="top" secondItem="HBh-aB-fnn" secondAttribute="bottom" constant="10" id="aP4-E3-Gzn"/>
                                             <constraint firstAttribute="trailing" secondItem="ObN-ec-Vch" secondAttribute="trailing" constant="20" id="bMd-78-ZM4"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GpN-gN-0cv" secondAttribute="trailing" constant="20" symbolic="YES" id="bqh-eb-N3s"/>
@@ -339,12 +350,16 @@
                                             <constraint firstItem="HBh-aB-fnn" firstAttribute="top" secondItem="PIN-AX-3OC" secondAttribute="bottom" constant="20" id="fPK-Bb-GGd"/>
                                             <constraint firstItem="ltH-Mh-PX4" firstAttribute="leading" secondItem="HBh-aB-fnn" secondAttribute="leading" id="kDf-5c-Qg5"/>
                                             <constraint firstItem="PIN-AX-3OC" firstAttribute="top" secondItem="jEn-Fe-W1h" secondAttribute="top" id="lA7-4j-ZYN"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="CqV-eA-XDk" secondAttribute="bottom" constant="15" id="nGe-sW-K4N"/>
+                                            <constraint firstItem="arM-fD-zY3" firstAttribute="leading" secondItem="HBh-aB-fnn" secondAttribute="leading" id="o2w-ta-ODi"/>
+                                            <constraint firstItem="9Lh-ZW-Jgl" firstAttribute="top" secondItem="arM-fD-zY3" secondAttribute="bottom" constant="25" id="qpD-gS-og9"/>
                                             <constraint firstItem="6iM-4O-4i7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ltH-Mh-PX4" secondAttribute="trailing" constant="8" symbolic="YES" id="rHc-If-8dj"/>
                                             <constraint firstItem="wIc-7H-4jI" firstAttribute="leading" secondItem="jEn-Fe-W1h" secondAttribute="leading" constant="20" id="ux2-73-YdN"/>
                                             <constraint firstItem="6iM-4O-4i7" firstAttribute="leading" secondItem="GpN-gN-0cv" secondAttribute="leading" id="y3H-ef-O4A"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" name="background-color"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="jEn-Fe-W1h" secondAttribute="trailing" id="Eny-NE-BR0"/>
                                     <constraint firstItem="PIN-AX-3OC" firstAttribute="height" secondItem="A3U-Kp-Z8m" secondAttribute="height" multiplier="0.5" id="LnS-2g-Nuv"/>
@@ -368,6 +383,7 @@
                     </view>
                     <connections>
                         <outlet property="budgetLabel" destination="6iM-4O-4i7" id="N1r-55-uWG"/>
+                        <outlet property="cosmosView" destination="arM-fD-zY3" id="gS6-Fi-PiY"/>
                         <outlet property="dateLabel" destination="ltH-Mh-PX4" id="9T1-rO-5XH"/>
                         <outlet property="posterView" destination="PIN-AX-3OC" id="rNt-Tm-rEM"/>
                         <outlet property="synopsisLabel" destination="CqV-eA-XDk" id="VZy-FU-MkQ"/>

@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import Cosmos
 
 class MovieDetailsViewController: UIViewController, SFSafariViewControllerDelegate {
     
@@ -17,6 +18,7 @@ class MovieDetailsViewController: UIViewController, SFSafariViewControllerDelega
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var budgetLabel: UILabel!
     @IBOutlet weak var trailerButton: UIButton!
+    @IBOutlet weak var cosmosView: CosmosView!
     
     var movieDetails = [String:Any]()
     var movieVideos = [[String:Any]]()
@@ -47,6 +49,17 @@ class MovieDetailsViewController: UIViewController, SFSafariViewControllerDelega
         
         dateLabel.text = movie["release_date"] as? String
         movieID = movie["id"] as! Int
+        
+        cosmosView.settings.fillMode = .half
+        let avg_rating = movie["vote_average"] as? Double ?? 0
+        cosmosView.rating = avg_rating/2
+        
+        cosmosView.didTouchCosmos = { rating in
+            print("Rated: \(rating)")
+            
+            APICaller.client.rateMovie(rating*2, self.movieID)
+            
+        }
         
         //print(movieID)
         //budgetLabel.text

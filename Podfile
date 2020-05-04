@@ -8,5 +8,6 @@ target 'WatchThis' do
   # Pods for WatchThis
 
   pod 'AlamofireImage'
+  pod 'Cosmos'
 
 end

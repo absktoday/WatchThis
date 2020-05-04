@@ -158,5 +158,26 @@ class APICaller {
         task.resume()
     }
     
+    func rateMovie(_ rating : Double, _ movieID : Int) {
+        let parameters = "{\n  \"value\": \(rating)\n}"
+        let postData = parameters.data(using: .utf8)
+
+        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/\(movieID)/rating?api_key=b6dcea27a60a83ccbe00da3c72753438&session_id=\(sessionID)")!,timeoutInterval: 10)
+        request.addValue("application/json;charset=utf-8", forHTTPHeaderField: "Content-Type")
+
+        request.httpMethod = "POST"
+        request.httpBody = postData
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+          guard let data = data else {
+            print(String(describing: error))
+            return
+          }
+            print(String(data: data, encoding: .utf8)!)
+        }
+
+        task.resume()
+    }
+    
     
 }
