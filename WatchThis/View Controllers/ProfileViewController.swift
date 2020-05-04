@@ -19,6 +19,13 @@ class ProfileViewController: UIViewController, SFSafariViewControllerDelegate {
         // Do any additional setup after loading the view.
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        if UserDefaults.standard.bool(forKey: "userLoginStatus") == true {
+            
+            APICaller.client.sessionID = UserDefaults.standard.string(forKey: "sessionID")!
+            self.performSegue(withIdentifier: "toProfile", sender: self)
+        }
+        
         APICaller.client.getToken()
         
     }
@@ -43,12 +50,13 @@ class ProfileViewController: UIViewController, SFSafariViewControllerDelegate {
     func safariViewControllerDidFinish(_ controller: SFSafariViewController)
     {
         //APICaller.client.login()
-        APICaller.client.loginV2()
+        APICaller.client.login()
         dismiss(animated: true)
     }
     
     
     @IBAction func LogoutPressed(_ sender: UIButton) {
+        UserDefaults.standard.set(false, forKey: "userLoginStatus")
         APICaller.client.logout()
     }
     

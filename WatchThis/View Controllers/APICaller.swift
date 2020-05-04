@@ -18,6 +18,7 @@ class APICaller {
     var sessionID = ""
     var myName = ""
     var myUserName = ""
+    var imgHASH = ""
     
     var accountID = 0
     
@@ -41,59 +42,9 @@ class APICaller {
         task.resume()
     }
     
-    
-    
-    
     func login() {
-        let parameters = ["request_token": token]
-        //https://api.themoviedb.org/3/authentication/session/new?api_key=###&request_token=###
         
-        
-        //let url = URL(string: "https://api.themoviedb.org/3/authentication/session/new?api_key=\(apiKey)")!
         let url = URL(string: "https://api.themoviedb.org/3/authentication/session/new?api_key=\(apiKey)&request_token=\(token)")!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {
-            return
-        }
-        
-        request.httpBody = httpBody
-        
-        let session = URLSession.shared
-        
-//        session.dataTask(with: request) { (data, response, error) in
-//            if let response = response {
-//                print(response)
-//            }
-//            if let data = data {
-//                do {
-//                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-//                    print(json)
-//                } catch {
-//                    print(error)
-//                }
-//            }
-//        }.resume()
-        session.uploadTask(with: request, from: httpBody) { (data, response, error) in
-            if let response = response {
-                print(response)
-            }
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                } catch {
-                    print(error)
-                }
-            }
-        }.resume()
-
-    }
-    
-    func loginV2() {
-        
-        let url = URL(string: "https://api.themoviedb.org/3/authentication/session/new?api_key=b6dcea27a60a83ccbe00da3c72753438&request_token=\(token)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -105,8 +56,11 @@ class APICaller {
                 
                 self.sessionID = loginData["session_id"] as! String
                 
-                print(loginData)
-                print(self.sessionID)
+                UserDefaults.standard.set(self.sessionID, forKey: "sessionID")
+                UserDefaults.standard.set(true, forKey: "userLoginStatus")
+                
+                //print(loginData)
+                //print(self.sessionID)
                 
             }
         }
@@ -131,6 +85,16 @@ class APICaller {
                 self.myName = userData["name"] as! String
                 self.myUserName = userData["username"] as! String
                 self.accountID = userData["id"] as! Int
+                //print(userData["avatar"]!)
+                
+                let tempDict = userData["avatar"] as! [String: [String : String]]
+                
+                //print("My HASH: \(tempDict["gravatar"]!["hash"] ?? "LOL")")
+                
+                self.imgHASH = tempDict["gravatar"]!["hash"] ?? "LOL"
+                
+                //print(self.imgHASH)
+                
                 completion()
             }
         }
@@ -142,7 +106,7 @@ class APICaller {
         let parameters = "{\n    \"session_id\": \"\(sessionID)\"\n}"
         let postData = parameters.data(using: .utf8)
 
-        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/authentication/session?api_key=b6dcea27a60a83ccbe00da3c72753438")!,timeoutInterval: Double.infinity)
+        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/authentication/session?api_key=\(apiKey)")!,timeoutInterval: Double.infinity)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         request.httpMethod = "DELETE"
@@ -162,7 +126,7 @@ class APICaller {
         let parameters = "{\n  \"value\": \(rating)\n}"
         let postData = parameters.data(using: .utf8)
 
-        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/\(movieID)/rating?api_key=b6dcea27a60a83ccbe00da3c72753438&session_id=\(sessionID)")!,timeoutInterval: 10)
+        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/\(movieID)/rating?api_key=\(apiKey)&session_id=\(sessionID)")!,timeoutInterval: 10)
         request.addValue("application/json;charset=utf-8", forHTTPHeaderField: "Content-Type")
 
         request.httpMethod = "POST"
@@ -183,7 +147,7 @@ class APICaller {
         let parameters = "{\n  \"media_type\": \"movie\",\n  \"media_id\": \(movieID),\n  \"favorite\": true\n}"
         let postData = parameters.data(using: .utf8)
 
-        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/account/\(accountID)/favorite?api_key=b6dcea27a60a83ccbe00da3c72753438&session_id=\(sessionID)")!,timeoutInterval: 10)
+        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/account/\(accountID)/favorite?api_key=\(apiKey)&session_id=\(sessionID)")!,timeoutInterval: 10)
         request.addValue("application/json;charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.addValue("text/plain", forHTTPHeaderField: "Content-Type")
 

@@ -428,7 +428,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Go to Profile"/>
                                 <connections>
-                                    <segue destination="uh5-Le-jZ4" kind="show" id="6Uu-lW-cQm"/>
+                                    <segue destination="uh5-Le-jZ4" kind="show" identifier="toProfile" id="6Uu-lW-cQm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdB-M1-889">
@@ -658,7 +658,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Skm-mI-iRH"/>
+        <segue reference="laP-7b-KUO"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
