@@ -155,6 +155,11 @@ class MovieDetailsViewController: UIViewController, SFSafariViewControllerDelega
         //dismiss(animated: true)
     }
     
+    @IBAction func addFavorite(_ sender: UIButton) {
+        
+        APICaller.client.setFavorite(movieID)
+        
+    }
     /*
     // MARK: - Navigation
 

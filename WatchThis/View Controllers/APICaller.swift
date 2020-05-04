@@ -179,5 +179,27 @@ class APICaller {
         task.resume()
     }
     
+    func setFavorite(_ movieID : Int) {
+        let parameters = "{\n  \"media_type\": \"movie\",\n  \"media_id\": \(movieID),\n  \"favorite\": true\n}"
+        let postData = parameters.data(using: .utf8)
+
+        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/account/\(accountID)/favorite?api_key=b6dcea27a60a83ccbe00da3c72753438&session_id=\(sessionID)")!,timeoutInterval: 10)
+        request.addValue("application/json;charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.addValue("text/plain", forHTTPHeaderField: "Content-Type")
+
+        request.httpMethod = "POST"
+        request.httpBody = postData
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+          guard let data = data else {
+            print(String(describing: error))
+            return
+          }
+          print(String(data: data, encoding: .utf8)!)
+        }
+
+        task.resume()
+    }
+    
     
 }

@@ -322,6 +322,17 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kR3-9S-j2T">
+                                                <rect key="frame" x="376" y="8" width="30" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="plus.circle.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addFavorite:" destination="Inp-Kq-PMS" eventType="touchUpInside" id="dkE-wl-j9N"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" name="background-color"/>
                                         <constraints>
@@ -393,7 +404,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xp8-YM-KI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1151" y="2319"/>
+            <point key="canvasLocation" x="-1152.1739130434783" y="2318.9732142857142"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Uv5-m5-1xT">
@@ -655,6 +666,7 @@
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="background-color">
             <color red="0.92941176470588238" green="0.92941176470588238" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
