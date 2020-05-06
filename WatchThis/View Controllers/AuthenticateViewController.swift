@@ -64,6 +64,9 @@ class AuthenticateViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = .mainBlue
         
+        let posterUrl = URL (string: "https://www.gravatar.com/avatar/" + APICaller.client.imgHASH + "?s=200")!
+        profileImageView.af_setImage(withURL: posterUrl, placeholderImage: UIImage(named: "default-poster"))
+        
         view.addSubview(profileImageView)
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         profileImageView.anchor(top: view.topAnchor, paddingTop: 60,
