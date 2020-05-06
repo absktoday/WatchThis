@@ -414,26 +414,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RyO-fk-DBR">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RyO-fk-DBR">
                                 <rect key="frame" x="177" y="292" width="60" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="LoginPressed:" destination="GVu-qf-BxK" eventType="touchUpInside" id="b0o-cw-QNV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nJ-Dr-nil">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nJ-Dr-nil">
                                 <rect key="frame" x="164" y="362" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Go to Profile"/>
                                 <connections>
                                     <segue destination="uh5-Le-jZ4" kind="show" identifier="toProfile" animates="NO" id="6Uu-lW-cQm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdB-M1-889">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdB-M1-889">
                                 <rect key="frame" x="183" y="433" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="LogoutPressed:" destination="GVu-qf-BxK" eventType="touchUpInside" id="zCG-pi-zyK"/>
@@ -441,6 +438,17 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="background-color"/>
+                        <constraints>
+                            <constraint firstItem="Oq0-AI-Ojr" firstAttribute="trailing" secondItem="RyO-fk-DBR" secondAttribute="trailing" constant="177" id="20f-At-7wj"/>
+                            <constraint firstItem="gdB-M1-889" firstAttribute="top" secondItem="4nJ-Dr-nil" secondAttribute="bottom" constant="41" id="35g-L3-Hvm"/>
+                            <constraint firstItem="gdB-M1-889" firstAttribute="leading" secondItem="Oq0-AI-Ojr" secondAttribute="leading" constant="183" id="7nT-32-9Dx"/>
+                            <constraint firstItem="4nJ-Dr-nil" firstAttribute="top" secondItem="RyO-fk-DBR" secondAttribute="bottom" constant="28" id="BoX-WT-ASq"/>
+                            <constraint firstItem="Oq0-AI-Ojr" firstAttribute="trailing" secondItem="gdB-M1-889" secondAttribute="trailing" constant="183" id="VgN-d7-oYJ"/>
+                            <constraint firstItem="RyO-fk-DBR" firstAttribute="top" secondItem="Oq0-AI-Ojr" secondAttribute="top" constant="204" id="Y7K-NE-d2c"/>
+                            <constraint firstItem="Oq0-AI-Ojr" firstAttribute="trailing" secondItem="4nJ-Dr-nil" secondAttribute="trailing" constant="164" id="bIf-G4-E5E"/>
+                            <constraint firstItem="RyO-fk-DBR" firstAttribute="leading" secondItem="Oq0-AI-Ojr" secondAttribute="leading" constant="177" id="kYk-AX-eGm"/>
+                            <constraint firstItem="4nJ-Dr-nil" firstAttribute="leading" secondItem="Oq0-AI-Ojr" secondAttribute="leading" constant="164" id="yUC-Yp-YeW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Oq0-AI-Ojr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="R7n-5a-xFe"/>
