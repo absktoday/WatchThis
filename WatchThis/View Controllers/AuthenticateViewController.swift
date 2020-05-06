@@ -14,12 +14,47 @@ class AuthenticateViewController: UIViewController {
     // MARK: - Properties
     
     var ratedMovies = [[String:Any]]()
+    var favMovies = [[String:Any]]()
     
     var accountID = ""
     
     var ratedCount = 0
     
+    var favCount = 0
+    
     var sessionID = ""
+    
+    lazy var favLabel : UILabel = {
+        
+        let label = UILabel()
+        label.text = "    My Favorites"
+        label.font = UIFont.systemFont(ofSize: 20)
+        
+        if traitCollection.userInterfaceStyle == .light{
+            label.textColor = UIColor.black
+        }
+        else{
+            label.textColor = UIColor.white
+        }
+
+        return label
+    }()
+    
+    lazy var ratedLabel : UILabel = {
+        
+        let label = UILabel()
+        label.text = "    Rated"
+        label.font = UIFont.systemFont(ofSize: 20)
+        
+        if traitCollection.userInterfaceStyle == .light{
+            label.textColor = UIColor.black
+        }
+        else{
+            label.textColor = UIColor.white
+        }
+        
+        return label
+    }()
     
     var images : [UIImage] = []
     
@@ -31,7 +66,7 @@ class AuthenticateViewController: UIViewController {
         
         view.addSubview(profileImageView)
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.anchor(top: view.topAnchor, paddingTop: 88,
+        profileImageView.anchor(top: view.topAnchor, paddingTop: 60,
                                 width: 120, height: 120)
         profileImageView.layer.cornerRadius = 120 / 2
         
@@ -49,12 +84,22 @@ class AuthenticateViewController: UIViewController {
         
         view.addSubview(emailLabel)
         emailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        emailLabel.anchor(top: nameLabel.bottomAnchor, paddingTop: 4)
+        emailLabel.anchor(top: nameLabel.bottomAnchor, paddingTop: 1)
         
         return view
     }()
     
     let ratedCollectionView : UICollectionView = {
+        
+       let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout : layout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.register(customCellRate.self, forCellWithReuseIdentifier: "cell")
+        return cv
+    }()
+    
+    let favoriteCollectionView : UICollectionView = {
         
        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -120,27 +165,65 @@ class AuthenticateViewController: UIViewController {
         
             self.accountID = "\(APICaller.client.accountID)"
             self.sessionID = "\(APICaller.client.sessionID)"
+            
+            self.getFavMovies()
             self.getRatedMovies()
+            
         }
         
+        let myHeight = (view.frame.height - 150)/3
         
-        
-        let myHeight = (view.frame.height - 90)/3
-        
-        view.backgroundColor = .white
-        
+        if traitCollection.userInterfaceStyle == .light{
+            favLabel.textColor = UIColor.black
+            ratedLabel.textColor = UIColor.black
+            view.backgroundColor = UIColor.white
+        }
+            
+        if traitCollection.userInterfaceStyle == .dark{
+            favLabel.textColor = UIColor.white
+            ratedLabel.textColor = UIColor.white
+            view.layer.shadowOpacity = 0.08
+            view.layer.shadowColor = UIColor(named: "darkshadow")?.cgColor
+        }
+    
         view.addSubview(containerView)
         containerView.anchor(top: view.topAnchor, left: view.leftAnchor,
                              right: view.rightAnchor, height: myHeight)
         
+        view.addSubview(favLabel)
+        
+        favLabel.anchor(top: containerView.bottomAnchor, left: view.leftAnchor,
+                        right: view.rightAnchor, height: 30)
+        
+        view.addSubview(favoriteCollectionView)
+        
+        favoriteCollectionView.backgroundColor = transparent()
+        favoriteCollectionView.anchor(top: favLabel.bottomAnchor, left: view.leftAnchor,
+                                   right: view.rightAnchor, height: myHeight)
+        
+        
+        
+        view.addSubview(ratedLabel)
+        
+        ratedLabel.anchor(top: favoriteCollectionView.bottomAnchor, left: view.leftAnchor,
+                        right: view.rightAnchor, height: 30)
+        
         view.addSubview(ratedCollectionView)
 
-        ratedCollectionView.backgroundColor = .white
-        ratedCollectionView.anchor(top: containerView.bottomAnchor, left: view.leftAnchor,
-                                   right: view.rightAnchor, height: myHeight*2)
+        ratedCollectionView.backgroundColor = transparent()
+        ratedCollectionView.anchor(top: ratedLabel.bottomAnchor, left: view.leftAnchor,
+                                   right: view.rightAnchor, height: myHeight)
 
+        
+        favoriteCollectionView.delegate = self
+        favoriteCollectionView.dataSource = self
+        
         ratedCollectionView.delegate = self
         ratedCollectionView.dataSource = self
+        
+        
+        
+        
         
     }
     
@@ -161,8 +244,6 @@ class AuthenticateViewController: UIViewController {
 
     func getRatedMovies(){
         
-        print(sessionID)
-        
         let url = URL(string: "https://api.themoviedb.org/3/account/\(APICaller.client.accountID)/rated/movies?api_key=b6dcea27a60a83ccbe00da3c72753438&language=en-US&session_id=\(APICaller.client.sessionID)&sort_by=created_at.asc&page=1")!
         
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -177,11 +258,42 @@ class AuthenticateViewController: UIViewController {
              self.ratedMovies = movieData["results"] as! [[String:Any]]
             self.ratedCount = self.ratedMovies.count
             self.ratedCollectionView.reloadData()
-            
-            //print(self.ratedMovies)
+        
            }
         }
         task.resume()
+    }
+    
+    func getFavMovies(){
+        
+        let url = URL(string: "https://api.themoviedb.org/3/account/\(APICaller.client.accountID)/favorite/movies?api_key=b6dcea27a60a83ccbe00da3c72753438&language=en-US&session_id=\(APICaller.client.sessionID)&sort_by=created_at.asc&page=1")!
+        
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let task = session.dataTask(with: request) { (data, response, error) in
+           // This will run when the network request returns
+           if let error = error {
+              print(error.localizedDescription)
+           } else if let data = data {
+              let movieData = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+            
+             self.favMovies = movieData["results"] as! [[String:Any]]
+            self.favCount = self.favMovies.count
+            self.favoriteCollectionView.reloadData()
+        
+           }
+        }
+        task.resume()
+    }
+    
+    func transparent() -> UIColor{
+        
+        return UIColor(red: 255, green: 255, blue: 255, alpha: 0)
+    }
+    
+    func darkMode() -> UIColor{
+        
+        return UIColor(red: 0, green: 0, blue: 255, alpha: 0.10)
     }
 
 }
@@ -237,33 +349,79 @@ extension AuthenticateViewController : UICollectionViewDelegateFlowLayout , UICo
         
         let myHeight = (view.frame.height - 80)/3
         
-        return CGSize(width: (ratedCollectionView.frame.width-2)/4, height: (myHeight - 20)/2)
+        return CGSize(width: (ratedCollectionView.frame.width-2)/4, height: (myHeight - 34)/2)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("entered number")
-        return ratedCount
+        if collectionView == self.ratedCollectionView{
+            
+            return ratedCount
+        }
+        return favCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = ratedCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! customCellRate
         
-        let movie = ratedMovies[indexPath.item]
-        
-        let baseUrl = "https://image.tmdb.org/t/p/w185"
-        
-        if let posterPath = movie["poster_path"] as? String {
-            let posterUrl = URL (string: baseUrl + posterPath)!
-            cell.bg.af_setImage(withURL: posterUrl, placeholderImage: UIImage(named: "default-poster"))
-        } else {
-            cell.bg.image = UIImage(named: "default-poster")
+        if collectionView == self.ratedCollectionView{
+            
+            let cell = ratedCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! customCellRate
+            
+            let movie = ratedMovies[indexPath.item]
+            
+            let baseUrl = "https://image.tmdb.org/t/p/w185"
+            
+            if let posterPath = movie["poster_path"] as? String {
+                let posterUrl = URL (string: baseUrl + posterPath)!
+                cell.bg.af_setImage(withURL: posterUrl, placeholderImage: UIImage(named: "default-poster"))
+            } else {
+                cell.bg.image = UIImage(named: "default-poster")
+            }
+            
+            cell.backgroundColor = transparent()
+            
+            return cell
         }
+        else{
+            
+            let cell = favoriteCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! customCellRate
+            
+            let movie = favMovies[indexPath.item]
+            
+            let baseUrl = "https://image.tmdb.org/t/p/w185"
+            
+            if let posterPath = movie["poster_path"] as? String {
+                let posterUrl = URL (string: baseUrl + posterPath)!
+                cell.bg.af_setImage(withURL: posterUrl, placeholderImage: UIImage(named: "default-poster"))
+            } else {
+                cell.bg.image = UIImage(named: "default-poster")
+            }
+            
+            cell.backgroundColor = transparent()
+            
+            return cell
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
         
-        cell.backgroundColor = .white
-        
-        
-        return cell
+        if let mySender = sender as? UICollectionViewCell {
+            print("Table View Cell Clicked")
+
+            let cell = mySender
+            let indexPath = favoriteCollectionView.indexPath(for: cell)!
+            let movie = favMovies[indexPath.item]
+
+            // Pass the selected movie to the details view controller
+
+            let detailsViewController = segue.destination as! MovieDetailsViewController
+
+            detailsViewController.movie = movie
+            
+        }
     }
     
 }
