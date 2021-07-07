@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kqc-6a-kxE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kqc-6a-kxE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +36,7 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idV-yF-abh">
                                                         <rect key="frame" x="372" y="8" width="34" height="33"/>
-                                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
                                                         <state key="normal" image="arrow.right.circle" catalog="system">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="29"/>
                                                         </state>
@@ -91,14 +93,14 @@
                                                 <rect key="frame" x="0.0" y="250" width="414" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyl-vl-BbP">
-                                                        <rect key="frame" x="15" y="10" width="111.5" height="30"/>
+                                                        <rect key="frame" x="15" y="10" width="111" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07e-rz-53p">
                                                         <rect key="frame" x="372" y="8" width="34" height="33"/>
-                                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
                                                         <state key="normal" image="arrow.right.circle" catalog="system">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="29"/>
                                                         </state>
@@ -124,7 +126,7 @@
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="180" id="M6t-ne-0lu" customClass="MovieTableViewCell" customModule="WatchThis" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="414" height="180"/>
+                                                        <rect key="frame" x="0.0" y="24.5" width="414" height="180"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M6t-ne-0lu" id="MXN-gH-5Tr">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
@@ -144,7 +146,7 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yr-II-7ka">
-                                                                            <rect key="frame" x="116" y="5" width="56.5" height="26.5"/>
+                                                                            <rect key="frame" x="116" y="5" width="56" height="26.5"/>
                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -209,6 +211,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="fhz-ku-uGE"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="background-color"/>
                         <constraints>
                             <constraint firstItem="Kbr-og-vZS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SDg-cB-pW0"/>
@@ -216,7 +219,6 @@
                             <constraint firstAttribute="bottom" secondItem="Kbr-og-vZS" secondAttribute="bottom" constant="20" symbolic="YES" id="YEM-3W-TZw"/>
                             <constraint firstItem="Kbr-og-vZS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="gHL-zw-CRi"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="7VR-eR-8Ps"/>
                     <connections>
@@ -246,31 +248,31 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="421"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltH-Mh-PX4">
-                                                <rect key="frame" x="20" y="472" width="34.5" height="21"/>
+                                                <rect key="frame" x="20" y="472" width="34" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIc-7H-4jI">
-                                                <rect key="frame" x="20" y="376" width="52" height="30"/>
+                                                <rect key="frame" x="20" y="376" width="51" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBh-aB-fnn">
-                                                <rect key="frame" x="20" y="441" width="107" height="21"/>
+                                                <rect key="frame" x="20" y="441" width="106" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpN-gN-0cv">
-                                                <rect key="frame" x="247" y="441" width="60" height="21"/>
+                                                <rect key="frame" x="246" y="441" width="60" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iM-4O-4i7">
-                                                <rect key="frame" x="247" y="472" width="55" height="21"/>
+                                                <rect key="frame" x="246" y="472" width="55" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -290,7 +292,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ratings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOF-ZA-8IS">
-                                                <rect key="frame" x="20" y="593" width="63" height="21"/>
+                                                <rect key="frame" x="20" y="593" width="62" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -383,14 +385,14 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="tbb-VJ-LTw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="A3U-Kp-Z8m" firstAttribute="top" secondItem="tbb-VJ-LTw" secondAttribute="top" id="F5n-0X-Iuu"/>
                             <constraint firstAttribute="bottom" secondItem="A3U-Kp-Z8m" secondAttribute="bottom" id="Rd3-2r-slD"/>
                             <constraint firstItem="A3U-Kp-Z8m" firstAttribute="trailing" secondItem="tbb-VJ-LTw" secondAttribute="trailing" id="VyN-zn-RtK"/>
                             <constraint firstItem="A3U-Kp-Z8m" firstAttribute="leading" secondItem="tbb-VJ-LTw" secondAttribute="leading" id="ofz-kl-uSc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="tbb-VJ-LTw"/>
                     </view>
                     <connections>
                         <outlet property="budgetLabel" destination="6iM-4O-4i7" id="N1r-55-uWG"/>
@@ -414,7 +416,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RyO-fk-DBR">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RyO-fk-DBR">
                                 <rect key="frame" x="177" y="292" width="60" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Login"/>
@@ -422,14 +424,14 @@
                                     <action selector="LoginPressed:" destination="GVu-qf-BxK" eventType="touchUpInside" id="b0o-cw-QNV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nJ-Dr-nil">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nJ-Dr-nil">
                                 <rect key="frame" x="164" y="362" width="86" height="30"/>
                                 <state key="normal" title="Go to Profile"/>
                                 <connections>
                                     <segue destination="uh5-Le-jZ4" kind="show" identifier="toProfile" animates="NO" id="6Uu-lW-cQm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdB-M1-889">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdB-M1-889">
                                 <rect key="frame" x="183" y="433" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
@@ -437,6 +439,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Oq0-AI-Ojr"/>
                         <color key="backgroundColor" name="background-color"/>
                         <constraints>
                             <constraint firstItem="Oq0-AI-Ojr" firstAttribute="trailing" secondItem="RyO-fk-DBR" secondAttribute="trailing" constant="177" id="20f-At-7wj"/>
@@ -449,7 +452,6 @@
                             <constraint firstItem="RyO-fk-DBR" firstAttribute="leading" secondItem="Oq0-AI-Ojr" secondAttribute="leading" constant="177" id="kYk-AX-eGm"/>
                             <constraint firstItem="4nJ-Dr-nil" firstAttribute="leading" secondItem="Oq0-AI-Ojr" secondAttribute="leading" constant="164" id="yUC-Yp-YeW"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Oq0-AI-Ojr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="R7n-5a-xFe"/>
                 </viewController>
@@ -520,18 +522,18 @@
                                 </collectionReusableView>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to view Recommendations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uts-Gp-KEO">
-                                <rect key="frame" x="83" y="437.5" width="248" height="21"/>
+                                <rect key="frame" x="84" y="437.5" width="246.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="zD2-Wa-Ylz"/>
                         <color key="backgroundColor" name="background-color"/>
                         <constraints>
                             <constraint firstItem="uts-Gp-KEO" firstAttribute="centerX" secondItem="2bl-nR-MhZ" secondAttribute="centerX" id="OEG-Sm-Ixs"/>
                             <constraint firstItem="uts-Gp-KEO" firstAttribute="centerY" secondItem="2bl-nR-MhZ" secondAttribute="centerY" id="ZSc-yB-lTT"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="zD2-Wa-Ylz"/>
                     </view>
                     <navigationItem key="navigationItem" title="You Might Like" id="9td-sH-sAf"/>
                     <connections>
@@ -550,8 +552,8 @@
                     <view key="view" contentMode="scaleToFill" id="Z2W-WY-s7h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="background-color"/>
                         <viewLayoutGuide key="safeArea" id="m42-rZ-KkN"/>
+                        <color key="backgroundColor" name="background-color"/>
                     </view>
                     <navigationItem key="navigationItem" id="B8Q-cp-0fF"/>
                 </viewController>
@@ -573,7 +575,7 @@
                                 <color key="backgroundColor" name="background-color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="180" id="rIL-G5-A0z" customClass="MovieTableViewCell" customModule="WatchThis" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="180"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rIL-G5-A0z" id="qwH-DR-HCs">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
@@ -593,7 +595,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fA-pm-rzK">
-                                                            <rect key="frame" x="116" y="5" width="56.5" height="26.5"/>
+                                                            <rect key="frame" x="116" y="5" width="56" height="26.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -645,8 +647,8 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ywa-4T-OEx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="psM-k8-JgD"/>
                     <connections>
@@ -704,7 +706,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bab-VD-wwz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Me" image="person" catalog="system" selectedImage="person" id="DWA-91-Sxq">
-                        <color key="badgeColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="badgeColor" systemColor="darkTextColor"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IZT-oX-IL1">
@@ -758,7 +760,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="180" id="xl7-yz-arG" customClass="MovieTableViewCell" customModule="WatchThis" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="180"/>
+                                        <rect key="frame" x="0.0" y="68.5" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xl7-yz-arG" id="CxS-cR-5av">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
@@ -778,7 +780,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXu-Q8-GN6">
-                                                            <rect key="frame" x="116" y="5" width="56.5" height="26.5"/>
+                                                            <rect key="frame" x="116" y="5" width="56" height="26.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -830,6 +832,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Db-dk-9c2"/>
                         <color key="backgroundColor" name="background-color"/>
                         <constraints>
                             <constraint firstItem="ifL-d7-Etx" firstAttribute="trailing" secondItem="9Db-dk-9c2" secondAttribute="trailing" id="Mxv-Nb-huv"/>
@@ -837,7 +840,6 @@
                             <constraint firstItem="ifL-d7-Etx" firstAttribute="top" secondItem="kuC-Qk-dj5" secondAttribute="top" id="egR-Me-T8h"/>
                             <constraint firstAttribute="bottom" secondItem="ifL-d7-Etx" secondAttribute="bottom" id="tvp-vP-pka"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="9Db-dk-9c2"/>
                     </view>
                     <navigationItem key="navigationItem" title="Find Movies" id="YmY-TP-xnJ"/>
                     <connections>
@@ -854,7 +856,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IkB-Js-R1T" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Recommendations" image="play.circle" catalog="system" selectedImage="play.circle" id="bfZ-Cf-rN8">
-                        <color key="badgeColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="badgeColor" systemColor="darkTextColor"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="JjW-iH-vbQ">
@@ -872,6 +874,11 @@
             <point key="canvasLocation" x="1213" y="706"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="arM-fD-zY3">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="9ko-jN-vAi"/>
     </inferredMetricsTieBreakers>
@@ -889,5 +896,14 @@
         <namedColor name="buttonImage">
             <color red="0.071000002324581146" green="0.071000002324581146" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

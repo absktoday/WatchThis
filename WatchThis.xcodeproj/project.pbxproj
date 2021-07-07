@@ -92,33 +92,49 @@
 		3884B172240721BA008BDD32 /* WatchThis */ = {
 			isa = PBXGroup;
 			children = (
+				38A74DB726958D0F00B4EC6A /* Services */,
 				3884B173240721BA008BDD32 /* AppDelegate.swift */,
 				3884B175240721BA008BDD32 /* SceneDelegate.swift */,
-				38A835BA2416E34F0074215E /* View Controllers */,
+				38A835BA2416E34F0074215E /* Controllers */,
+				38A74DB626958C6800B4EC6A /* View */,
 				3884B179240721BA008BDD32 /* Main.storyboard */,
 				3884B17C240721BC008BDD32 /* Assets.xcassets */,
 				3884B17E240721BC008BDD32 /* LaunchScreen.storyboard */,
 				3884B181240721BC008BDD32 /* Info.plist */,
-				381E459C2418DAA100429ED8 /* MovieGridCell.swift */,
-				38C4EE3A2418E4620020E073 /* MovieTableViewCell.swift */,
-				38161ACC2462788800ADA63E /* SectionHeaderView.swift */,
 			);
 			path = WatchThis;
 			sourceTree = "<group>";
 		};
-		38A835BA2416E34F0074215E /* View Controllers */ = {
+		38A74DB626958C6800B4EC6A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				381E459C2418DAA100429ED8 /* MovieGridCell.swift */,
+				38C4EE3A2418E4620020E073 /* MovieTableViewCell.swift */,
+				38161ACC2462788800ADA63E /* SectionHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38A74DB726958D0F00B4EC6A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				38E5B5D5241717DA00B93221 /* APICaller.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		38A835BA2416E34F0074215E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				3884B177240721BA008BDD32 /* MoviesViewController.swift */,
 				38A835B82416E3180074215E /* ProfileViewController.swift */,
 				38E5B5D32417116A00B93221 /* AuthenticateViewController.swift */,
-				38E5B5D5241717DA00B93221 /* APICaller.swift */,
 				3861450B241F498600378CD8 /* MovieDetailsViewController.swift */,
 				91D2A74D245480C600521145 /* SearchViewController.swift */,
 				38161ACA2462688B00ADA63E /* RecommendationViewController.swift */,
 				38161ACE2462831B00ADA63E /* RecommendedMoviesViewController.swift */,
 			);
-			path = "View Controllers";
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		512E39393092B5917B5F46AA /* Frameworks */ = {
@@ -158,7 +174,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Tech Knowns";
 				TargetAttributes = {
 					3884B16F240721BA008BDD32 = {
@@ -308,6 +324,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -368,6 +385,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -402,7 +420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6WA6Y7KBQJ;
+				DEVELOPMENT_TEAM = U3DVJPKCSY;
 				INFOPLIST_FILE = WatchThis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -421,7 +439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6WA6Y7KBQJ;
+				DEVELOPMENT_TEAM = U3DVJPKCSY;
 				INFOPLIST_FILE = WatchThis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
